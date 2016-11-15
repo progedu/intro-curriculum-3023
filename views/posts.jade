@@ -3,18 +3,25 @@ html(lang="jp")
   head
     meta(charset="UTF-8")
     title 秘密の匿名掲示板
+    style.
+      *	{font-family:font-family: Helvetica , "游ゴシック" , "Yu Gothic" , sans-serif;}
+      body{background-color:#c5fbfb;}
+      .message{min-width:80%; background-color:#fff;margin:0 auto;width:400px;padding:30px 50px;border:2px #000 solid;border-radius: 30px;line-height:50px}
+      .input_text{width:80%;margin:0 auto;}
   body
-    h1 秘密の匿名掲示板
+    h1(style="text-align: center;") 秘密の匿名掲示板
     a(href="/logout") ログアウト
     h2 新規投稿
-    form(method="post", action="/posts")
-      div
-        textarea(name="content", cols=40, rows=4)
-      div
-        button(type="submit") 投稿
-    h2 投稿一覧
+    div(class="input_text")
+      form(method="post", action="/posts")
+        div
+          textarea(name="content", cols=40, rows=4)
+        div
+          button(type="submit") 投稿
+    h2(style="") 投稿一覧
     each post in posts
-      h3 #{post.id} : ID:#{post.trackingCookie}
-      p #{post.content}
-      p 投稿日時: #{post.createdAt}
-      hr
+      div(class="message")
+        h3 #{post.id} : ID:#{post.trackingCookie}
+        p #{post.content}
+        p 投稿日時: #{post.createdAt}
+      br
