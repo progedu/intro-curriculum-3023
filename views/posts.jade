@@ -13,8 +13,10 @@ html(lang="jp")
       div
         button(type="submit") 投稿
     h2 投稿一覧
+    //- 全投稿内容が格納された配列contentsを受け取り、
+    //- １件ずつcontentに渡して処理を行っている
     each post in posts
       h3 #{post.id} : ID:#{post.trackingCookie}
       p #{post.content}
-      p 投稿日時: #{post.createdAt}
+      p 投稿日時： #{post.createdAt}
       hr
