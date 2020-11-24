@@ -14,7 +14,9 @@ html(lang="ja")
         button(type="submit") 投稿
     h2 投稿一覧
     each post in posts
-      h3 #{post.id} : ID:#{post.trackingCookie}
+      h3 #{post.id} : ID:#{post.trackingCookie % 100000000}
       p #{post.content}
       p 投稿日時: #{post.createdAt}
       hr
+    script
+     | console.log("hello.")
